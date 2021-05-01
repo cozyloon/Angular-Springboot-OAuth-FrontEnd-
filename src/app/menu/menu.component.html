@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+  <a class="navbar-brand" href="#">Social Login</a>
+  <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+          class="navbar-toggler"
+          data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/">
+          <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/list">
+          <i class="fas fa-list"></i> List</a>
+      </li>
+    </ul>
+
+    <ul *ngIf="isLogged" class="navbar-nav ml-auto">
+      <img *ngIf="isLogged" class="rounded-circle mr-3" src="{{ userLogged.photoUrl }}" style="width: 50px">
+      <div>
+        <p style="color: white" *ngIf="isLogged">{{ userLogged.name }}</p>
+        <p style="color: white" *ngIf="isLogged">{{ userLogged.email }}</p>
+      </div>
+    </ul>
+
+    <button *ngIf="!isLogged" class="btn btn-outline-success my-2 my-sm-0" routerLink="/login" type="submit">
+      <i class="fas fa-sign-in-alt fa-lg"></i> Log In
+    </button>
+
+    <button (click)="signOut()" *ngIf="isLogged" class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+      <i class="fas fa-sign-in-alt fa-lg"></i> Log Out
+    </button>
+  </div>
+</nav>

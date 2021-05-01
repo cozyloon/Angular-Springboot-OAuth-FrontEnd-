@@ -1,0 +1,23 @@
+<app-menu></app-menu>
+<div class="container" *ngIf="!isLogged">
+  <div class="row m-3">
+    <div class="col-md-6 mx-auto">
+
+      <div class="card">
+        <h5 class="card-header text-center">
+          Welcome
+        </h5>
+        <div class="card-body text-center">
+          <button (click)="signInWithGoogle()" class="btn btn-danger btn-lg btn-block">
+            <i class="fab fa-google"></i> Sign up with Google
+          </button>
+
+          <button (click)="  signInWithFB()" class="btn btn-primary btn-lg btn-block">
+            <i class="fab fa-facebook"></i> Sign up with Facebook
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
